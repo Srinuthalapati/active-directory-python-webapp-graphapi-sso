@@ -11,7 +11,7 @@ app.debug = True
 app.secret_key = 'development'
 
 SESSION = requests.Session()
-PORT = 5000  # A flask app by default runs on PORT 5000
+PORT = 5001  # A flask app by default runs on PORT 5000
 AUTHORITY_URL = config.AUTHORITY_HOST_URL + '/' + config.TENANT
 REDIRECT_URI = 'http://localhost:{}/getAToken'.format(PORT)
 TEMPLATE_AUTHZ_URL = ('https://login.microsoftonline.com/{}/oauth2/authorize?' +

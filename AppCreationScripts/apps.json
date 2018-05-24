@@ -12,7 +12,7 @@
 
     "Level": 200,
 
-    "Client": "PythonWebApp",
+    "Client": "PythonWebAppSSO",
 
     "Service": "Microsoft Graph"
 
@@ -24,13 +24,13 @@
 
       "Id": "webApp",
 
-      "Name": "PythonWebApp",
+      "Name": "PythonWebAppSSO",
 
       "IsPublicClient": false,
 
-      "HomePage": "http://localhost:5000/",
+      "HomePage": "http://localhost:5001/",
 
-      "ReplyUrls": "http://localhost:5000/getAToken",
+      "ReplyUrls": "http://localhost:5001/getAToken",
 
       "PasswordCredentials": "Auto", // We'd want password credentals to be generated automatically
 

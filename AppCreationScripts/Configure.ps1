@@ -175,16 +175,16 @@ Function ConfigureApplications
     $tenantName =  ($tenant.VerifiedDomains | Where { $_._Default -eq $True }).Name
 
    # Create the webApp AAD application
-   Write-Host "Creating the AAD appplication (PythonWebApp)"
+   Write-Host "Creating the AAD appplication (PythonWebAppSSO)"
    # Get a 2 years application key for the webApp Application
    $pw = ComputePassword
    $fromDate = [DateTime]::Now;
    $key = CreateAppKey -fromDate $fromDate -durationInYears 2 -pw $pw
    $webAppAppKey = $pw
-   $webAppAadApplication = New-AzureADApplication -DisplayName "PythonWebApp" `
-                                                  -HomePage "http://localhost:5000/" `
-                                                  -ReplyUrls "http://localhost:5000/getAToken" `
-                                                  -IdentifierUris "https://$tenantName/PythonWebApp" `
+   $webAppAadApplication = New-AzureADApplication -DisplayName "PythonWebAppSSO" `
+                                                  -HomePage "http://localhost:5001/" `
+                                                  -ReplyUrls "http://localhost:5001/getAToken" `
+                                                  -IdentifierUris "https://$tenantName/PythonWebAppSSO" `
                                                   -PasswordCredentials $key `
                                                   -PublicClient $False
 
@@ -195,7 +195,7 @@ Function ConfigureApplications
 
    # URL of the AAD application in the Azure portal
    $webAppPortalUrl = "https://portal.azure.com/#@"+$tenantName+"/blade/Microsoft_AAD_IAM/ApplicationBlade/appId/"+$webAppAadApplication.AppId+"/objectId/"+$webAppAadApplication.ObjectId
-   Add-Content -Value "<tr><td>webApp</td><td>$currentAppId</td><td><a href='$webAppPortalUrl'>PythonWebApp</a></td></tr>" -Path createdApps.html
+   Add-Content -Value "<tr><td>webApp</td><td>$currentAppId</td><td><a href='$webAppPortalUrl'>PythonWebAppSSO</a></td></tr>" -Path createdApps.html
 
    $requiredResourcesAccess = New-Object System.Collections.Generic.List[Microsoft.Open.AzureAD.Model.RequiredResourceAccess]
    # Add Required Resources Access (from 'webApp' to 'Microsoft Graph')

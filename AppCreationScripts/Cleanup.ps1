@@ -48,8 +48,8 @@ This function removes the Azure AD applications for the sample. These applicatio
     # Removes the applications
     Write-Host "Cleaning-up applications from tenant '$tenantName'"
 
-    Write-Host "Removing 'webApp' (PythonWebApp) if needed"
-    $app=Get-AzureADApplication -Filter "identifierUris/any(uri:uri eq 'https://$tenantName/PythonWebApp')"  
+    Write-Host "Removing 'webApp' (PythonWebAppSSO) if needed"
+    $app=Get-AzureADApplication -Filter "identifierUris/any(uri:uri eq 'https://$tenantName/PythonWebAppSSO')"  
     if ($app)
     {
         Remove-AzureADApplication -ObjectId $app.ObjectId
