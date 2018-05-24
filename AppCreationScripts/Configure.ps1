@@ -182,8 +182,8 @@ Function ConfigureApplications
    $key = CreateAppKey -fromDate $fromDate -durationInYears 2 -pw $pw
    $webAppAppKey = $pw
    $webAppAadApplication = New-AzureADApplication -DisplayName "PythonWebAppSSO" `
-                                                  -HomePage "http://localhost:5001/" `
-                                                  -ReplyUrls "http://localhost:5001/getAToken" `
+                                                  -HomePage "http://localhost:5000/" `
+                                                  -ReplyUrls "http://localhost:5000/getAToken" `
                                                   -IdentifierUris "https://$tenantName/PythonWebAppSSO" `
                                                   -PasswordCredentials $key `
                                                   -PublicClient $False
