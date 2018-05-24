@@ -5,12 +5,13 @@
     <title>Data from Microsoft Graph!!</title>
 </head>
 <body>
-<p1><b>User Data:</b> </p1>
+<p1><b>User Data is displayed below:</b> </p1>
+<p5><b>_____________________________</b> </p5>
 <table>
 {% for key, value in graph_data.items() %}
    <tr>
-        <th> {{ key }}: </th>
-        <td> {{ value }} </td>
+        <th>       {{ key }}    -->    </th>
+        <td>{{ value }} </td>
    </tr>
 {% endfor %}
 </table>
